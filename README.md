@@ -1,0 +1,2 @@
+# c-etait-mieux-avant
+La société "Réfractaire", fleuron de la recherche médicale, utilise des algorithmes de Deep Learning pour ses projets d'analyses d'images (principalement autour des cancers). Aujourd'hui, ses projets fonctionnent mais la société fait parfois face à des soucis de régressions dans leurs applications. Après quelques recherche il s'avère, que une fois sur deux, l'algorithme de Deep Learning fait des erreurs. Elle vous sollicite pour l'aider.

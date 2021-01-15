@@ -1,0 +1,9 @@
+name: mlflow-cifar
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      filter: {type: int, default: 50}
+    command: "python mlflow_cifar.py"

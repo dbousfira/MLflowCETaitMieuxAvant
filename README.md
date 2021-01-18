@@ -12,17 +12,12 @@
 ## Table of Contents
 
 * [About the Project](#about-the-project)
-  * [Built With](#built-with)
 * [Getting Started](#getting-started)
   * [Installation](#installation)
 * [Usage](#usage)
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-### Built With
-
-* [Anaconda](https://www.anaconda.com/)
 
 <!-- GETTING STARTED -->
 ## Getting Started

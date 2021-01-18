@@ -1,4 +1,4 @@
-name: mlflow-cifar
+name: tutorial
 channels:
   - defaults
   - anaconda
@@ -8,6 +8,5 @@ dependencies:
   - pillow=8.0.1
   - python=3.6
   - pip
-  - scikit-learn=0.23.2
   - pip:
     - mlflow>=1.0

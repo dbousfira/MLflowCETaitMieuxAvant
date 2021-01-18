@@ -1,12 +1,12 @@
-""""""
 import sys
+import time
 
-import mlflow
-import mlflow.keras
 from keras.callbacks import EarlyStopping
-from keras.models import Sequential, load_model
+from keras.models import Sequential
 from keras.layers import Dense, Dropout, Conv2D, MaxPool2D, Flatten
 from keras.preprocessing.image import ImageDataGenerator
+import mlflow
+import mlflow.keras
 from urllib.parse import urlparse
 
 
@@ -19,8 +19,8 @@ epochs = 50
 filter = int(sys.argv[1]) if len(sys.argv) > 1 else 50
 
 with mlflow.start_run():
-    # Création d'un modèle séquentiel qui se résume à une pile linéaire de
-    # couches
+    # Build the model
+    tic = time.time()
     model = Sequential()
 
     model.add(
@@ -71,6 +71,7 @@ with mlflow.start_run():
         epochs=epochs,
         callbacks=[es_callback],
         validation_data=test_generator)
+    duration_training = time.time() - tic
 
     score = model.evaluate(train_generator, verbose=0)
     print("Test de perte:", score[0])
@@ -78,7 +79,13 @@ with mlflow.start_run():
 
     print("CNN model (loss=%f, accuracy=%f):" % (score[0], score[1]))
 
-    mlflow.log_metrics({"loss": score[0], "accuracy": score[1]})
+    # Evaluate the model prediction
+    metrics = {
+        "duration_training": duration_training,
+    }
+
+    # Log in mlflow (metrics)
+    mlflow.log_metrics(metrics)
 
     tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
@@ -88,7 +95,7 @@ with mlflow.start_run():
         # There are other ways to use the Model Registry, which depends on the use case,
         # please refer to the doc for more information:
         # https://mlflow.org/docs/latest/model-registry.html#api-workflow
-        mlflow.sklearn.log_model(
+        mlflow.keras.log_model(
             model, "model", registered_model_name="CNNModel")
     else:
-        mlflow.sklearn.log_model(model, "model")
+        mlflow.keras.log_model(model, "model")

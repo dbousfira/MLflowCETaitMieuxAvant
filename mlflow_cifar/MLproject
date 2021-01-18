@@ -1,4 +1,4 @@
-name: mlflow-cifar
+name: tutorial
 
 conda_env: conda.yaml
 

@@ -8,6 +8,22 @@
   </p>
 </p>
 
+Contexte du projet
+
+La société "Réfractaire" est une spécialiste de l'intelligence artificielle autour de la recherche médicale. Elle possède des Data Scientists et a déjà réalisée de nombreux algorithmes.
+
+Elle n'est cependant pas très mature sur les outils dits "MLOps", qui permettent entre autre, de monitorer les résultats des algorithmes qu'elle conçoit. Algorithmes qui aujourd'hui, peuvent lui poser des problèmes lorsque l'entrainement dégrade les performances de ces derniers (pour diverses raisons).
+
+Elle vous demande de lui présenter l'outil MLFlow à l'aide d'un projet (brief) sur lequel vous avez déjà travaillé. De lui montrer les principales fonctionnalités :
+
+Création d'un fichier MLProject
+
+Versionning avec Git
+
+Gestion des paramètres entre les runs
+
+Exécuter sur un fichier python et/ou un notebook
+
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
